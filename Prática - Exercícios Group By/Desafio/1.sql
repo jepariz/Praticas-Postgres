@@ -1,0 +1,1 @@
+SELECT s.name AS school, c.name AS course, MAX(e."userId") AS "studentsCount", e.status AS status FROM educations e JOIN schools s ON e."schoolId" = s.id JOIN courses c ON e."courseId" = c.id WHERE e.status = 'ongoing' OR e.status = 'finished' GROUP BY c.id, s.name, e.status ORDER BY "studentsCount" DESC LIMIT 3;

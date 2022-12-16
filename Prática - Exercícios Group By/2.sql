@@ -1,0 +1,1 @@
+SELECT users.id AS id, COUNT(e."courseId") AS educations FROM educations e JOIN users ON e."userId" = users.id GROUP BY users.id;

@@ -1,0 +1,1 @@
+SELECT MAX(j.salary) AS "maximumSalary", roles.name AS role FROM jobs j JOIN roles ON j."roleId" = roles.id WHERE j.active = true GROUP BY roles.id ORDER BY "maximumSalary" ASC;
