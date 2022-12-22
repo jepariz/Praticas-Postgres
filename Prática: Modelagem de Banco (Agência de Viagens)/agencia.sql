@@ -1,0 +1,22 @@
+CREATE DATABASE "carpeDiemViagens";
+
+CREATE TABLE ciasAereas(
+    id SERIAL NOT NULL PRIMARY KEY,
+    nome TEXT NOT NULL UNIQUE,
+    sigla TEXT NOT NULL UNIQUE
+)
+
+CREATE TABLE aeroportos(
+    id SERIAL NOT NULL PRIMARY KEY,
+    sigla TEXT NOT NULL UNIQUE,
+    nome TEXT NOT NULL
+)
+
+CREATE TABLE voos(
+   id SERIAL NOT NULL PRIMARY KEY, 
+   sigla TEXT NOT NULL UNIQUE,
+   "origemId" INTEGER NOT NULL REFERENCES aeroportos(id),
+   "destinoId" INTEGER NOT NULL REFERENCES aeroportos(id),
+   "horarioSaida" TIMESTAMP WITH TIME ZONE,
+   "horarioChegada" TIMESTAMP WITH TIME ZONE,
+)
